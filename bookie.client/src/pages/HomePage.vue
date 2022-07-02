@@ -1,30 +1,68 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img src="https://bcw.blob.core.windows.net/public/img/8600856373152463" alt="CodeWorks Logo" class="rounded-circle">
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="container-fluid">
+    <div class="row justify-content-between mb-5">
+      <div class="col-6">
+        <h1 class="logo">
+          <a
+            href="https://www.instagram.com/rampant_reading/"
+            class="text-decoration-none text-white"
+            target="_blank"
+          >
+            <i class="mdi mdi-instagram"></i>
+          </a>
+        </h1>
+      </div>
+      <div class="col-6 text-end">
+        <h1 class="logo">
+          <a
+            href="https://rampantreading.wordpress.com/blog/"
+            class="text-decoration-none text-white"
+            target="_blank"
+          >
+            <i class="mdi mdi-wordpress"></i>
+          </a>
+        </h1>
+      </div>
     </div>
+    <HomePageBook v-for="b in books" :key="b.id" :book="b" />
   </div>
 </template>
 
 <script>
+import { computed } from '@vue/reactivity'
+import { AppState } from '../AppState.js'
+import { onMounted } from '@vue/runtime-core'
+import Pop from '../utils/Pop.js'
+import { booksService } from '../services/BooksService.js'
 export default {
-  name: 'Home'
+  setup() {
+
+    onMounted(async () => {
+      try {
+        await booksService.getAllBooks()
+      }
+      catch (error) {
+        console.error("[COULD_NOT_GET_BOOKS]", error.message);
+        Pop.toast(error.message, "error");
+      }
+    })
+    return {
+      books: computed(() => AppState.myBooks)
+    }
+  }
 }
 </script>
 
 <style scoped lang="scss">
-.home{
+.home {
   display: grid;
   height: 80vh;
   place-content: center;
   text-align: center;
   user-select: none;
-  .home-card{
+  .home-card {
     width: 50vw;
-    > img{
+    > img {
       height: 200px;
       max-width: 200px;
       width: 100%;
@@ -32,5 +70,10 @@ export default {
       object-position: center;
     }
   }
+}
+.logo {
+  font-size: 6rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
 </style>
