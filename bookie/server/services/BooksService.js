@@ -31,6 +31,7 @@ class BooksService {
     targetBook.platform = body.platform || targetBook.platform
     targetBook.status = body.status || targetBook.status
     targetBook.rating = body.rating || targetBook.rating
+    targetBook.imgUrl = body.imgUrl || targetBook.imgUrl
     await targetBook.save()
     return targetBook
   }

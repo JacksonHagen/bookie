@@ -24,7 +24,10 @@
         </h1>
       </div>
     </div>
-    <HomePageBook v-for="b in books" :key="b.id" :book="b" />
+    <span v-if="books">
+      <HomePageBook v-for="b in readingBooks" :key="b.id" :book="b" />
+      <HomePageBook v-for="b in nextUpBooks" :key="b.id" :book="b" />
+    </span>
   </div>
 </template>
 
@@ -47,7 +50,9 @@ export default {
       }
     })
     return {
-      books: computed(() => AppState.myBooks)
+      books: computed(() => AppState.myBooks),
+      readingBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading')),
+      nextUpBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading soon'))
     }
   }
 }
