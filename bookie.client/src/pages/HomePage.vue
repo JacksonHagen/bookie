@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-between mb-5">
-      <div class="col-6">
+    <div class="row justify-content-between mx-5">
+      <div class="col-3">
         <h1 class="logo">
           <a
             href="https://www.instagram.com/rampant_reading/"
@@ -12,7 +12,23 @@
           </a>
         </h1>
       </div>
-      <div class="col-6 text-end">
+      <div class="col-6 text-center mt-4">
+        <form @submit.prevent="" class="input-group">
+          <select
+            name="addBook"
+            id="addBook"
+            class="form-control w-75"
+            required
+          >
+            <option disabled selected>Select a book</option>
+            <option v-for="b in books" :key="b.id" :value="b">
+              {{ b.title }}
+            </option>
+          </select>
+          <button class="btn btn-info w-25">Add Book To List</button>
+        </form>
+      </div>
+      <div class="col-3 text-end">
         <h1 class="logo">
           <a
             href="https://rampantreading.wordpress.com/blog/"

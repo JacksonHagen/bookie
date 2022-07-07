@@ -20,18 +20,19 @@
           </div>
           <div class="col-md-9 d-flex flex-column justify-content-between">
             <div class="">
-              <h3>
-                {{ book.author }}
+              <h3 class="d-flex">
+                Author:
+                <p class="ms-2 fw-light">{{ book.author }}</p>
               </h3>
             </div>
-            <div class="">
-              <h3>
-                {{ book.releaseDate }}
-              </h3>
-            </div>
+            <h3 class="d-flex">
+              Publication Date:
+              <p class="ms-2 fw-light">{{ book.releaseDate }}</p>
+            </h3>
             <div class="d-flex justify-content-between pe-3">
-              <h3>
-                {{ book.format }}
+              <h3 class="d-flex">
+                Format:
+                <p class="ms-2 fw-light ">{{ book.format }}</p>
               </h3>
               <h4>
                 Status -
