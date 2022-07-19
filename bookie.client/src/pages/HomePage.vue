@@ -21,7 +21,7 @@
             required
           >
             <option disabled selected>Select a book</option>
-            <option v-for="b in books" :key="b.id" :value="b">
+            <option v-for="b in booksToAddToQueue" :key="b.id" :value="b">
               {{ b.title }}
             </option>
           </select>
@@ -68,7 +68,8 @@ export default {
     return {
       books: computed(() => AppState.myBooks),
       readingBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading')),
-      nextUpBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading soon'))
+      nextUpBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading soon')),
+      booksToAddToQueue: computed(() => AppState.myBooks.filter(b => b.status === 'TBD'))
     }
   }
 }

@@ -20,8 +20,12 @@
       <span class="navbar-toggler-icon" />
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto">
-        <li></li>
+      <ul class="navbar-nav ms-auto me-5">
+        <li class="fs-1">
+          <router-link :to="{ name: 'Schedule' }" class="text-light">
+            Schedule
+          </router-link>
+        </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
@@ -45,7 +49,7 @@ a:hover {
   text-transform: uppercase;
 }
 .navbar-nav .router-link-exact-active {
-  border-bottom: 2px solid var(--bs-success);
+  border-bottom: 2px solid var(--bs-info);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
