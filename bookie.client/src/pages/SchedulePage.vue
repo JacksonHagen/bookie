@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <ScheduleSpreadsheet />
+        <ScheduleSpreadsheet :books="myBooks" />
       </div>
     </div>
   </div>
@@ -10,9 +10,24 @@
 
 
 <script>
+import { computed } from '@vue/reactivity'
+import { AppState } from '../AppState.js'
+import { onMounted } from '@vue/runtime-core'
+import { booksService } from '../services/BooksService.js'
 export default {
   setup() {
-    return {}
+    onMounted(async () => {
+      try {
+        booksService.getAllBooks();
+      }
+      catch (error) {
+        console.error("[COULDNT_LOAD_BOOKS]", error.message);
+        Pop.toast(error.message, "error");
+      }
+    })
+    return {
+      myBooks: computed(() => AppState.myBooks)
+    }
   }
 }
 </script>
