@@ -71,20 +71,33 @@
         <option value="TBD">TBD</option>
       </select>
     </td>
+    <td>
+      <star-rating
+        @click="edit()"
+        :show-rating="false"
+        :increment="0.5"
+        :star-size="25"
+        v-model:rating="book.rating"
+      ></star-rating>
+    </td>
   </tr>
 </template>
 
 
 <script>
-import { ref } from '@vue/reactivity';
+import { computed, ref } from '@vue/reactivity';
 import { booksService } from '../services/BooksService.js';
 import Pop from '../utils/Pop.js';
+import StarRating from 'vue-star-rating'
 export default {
   props: {
     book: {
       type: Object,
       required: true
     }
+  },
+  components: {
+    StarRating
   },
   setup(props) {
     const bookEdit = ref(props.book)

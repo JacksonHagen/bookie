@@ -8,6 +8,16 @@
         <!-- <img alt="logo" src="../assets/img/cw-logo.png" height="45" /> -->
       </div>
     </router-link>
+    <div class="ps-4">
+      <button
+        class="btn bg-primary lighten-20 btn-xl"
+        title="Add a book"
+        data-bs-toggle="modal"
+        data-bs-target="#addBookModal"
+      >
+        <i class="mdi mdi-plus fs-3"></i>
+      </button>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -31,12 +41,35 @@
       <Login />
     </div>
   </nav>
+
+  <!-- Modal -->
+  <div class="modal fade" id="addBookModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add a Book</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <CreateBookForm />
+        </div>
+
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import { ref } from '@vue/reactivity';
 export default {
   setup() {
-    return {};
+    return {
+    };
   },
 };
 </script>

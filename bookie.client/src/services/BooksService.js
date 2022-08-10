@@ -13,6 +13,11 @@ class BooksService
 		const res = await api.put('api/books/' + book.id, book)
 		logger.log(res)
 	}
+
+	async addBook(book) {
+		const res = await api.post('api/books', book)
+		logger.log(res)
+	}
 }
 
 export const booksService = new BooksService();

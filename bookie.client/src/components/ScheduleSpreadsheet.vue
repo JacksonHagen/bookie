@@ -9,6 +9,7 @@
         <th scope="col">Platform</th>
         <th scope="col">Posted?</th>
         <th scope="col">Status</th>
+        <th scope="col">Rating</th>
       </tr>
     </thead>
     <tbody>
