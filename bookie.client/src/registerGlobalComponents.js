@@ -9,4 +9,5 @@ export function registerGlobalComponents(root) {
     // Register component on this Vue instance
     root.component(componentName, component.default)
   })
+	
 }
