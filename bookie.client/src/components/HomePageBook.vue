@@ -1,15 +1,22 @@
 <template>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-5">
     <div class="col-10">
       <div class="card w-100 bg-light p-3">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 d-flex justify-content-between">
             <h2>
               {{ book.title }}
             </h2>
-            <hr />
+            <star-rating
+              @click="edit()"
+              :show-rating="false"
+              :increment="0.5"
+              :star-size="35"
+              v-model:rating="bookEdit.rating"
+            ></star-rating>
           </div>
         </div>
+        <hr />
         <div class="row">
           <div class="col-md-3">
             <img
@@ -32,7 +39,7 @@
             <div class="d-flex justify-content-between pe-3">
               <h3 class="d-flex">
                 Format:
-                <p class="ms-2 fw-light ">{{ book.format }}</p>
+                <p class="ms-2 fw-light">{{ book.format }}</p>
               </h3>
               <h4>
                 Status -
@@ -55,6 +62,10 @@
 
 
 <script>
+import { ref } from '@vue/reactivity';
+import { booksService } from '../services/BooksService.js';
+import StarRating from 'vue-star-rating'
+
 export default {
   props: {
     book: {
@@ -62,8 +73,23 @@ export default {
       required: true
     },
   },
-  setup() {
-    return {}
+  components: {
+    StarRating
+  },
+  setup(props) {
+    const bookEdit = ref(props.book)
+    return {
+      bookEdit,
+      async edit() {
+        try {
+          await booksService.edit(bookEdit.value)
+        }
+        catch (error) {
+          console.error("[COULDNT_EDIT_BOOK]", error.message);
+          Pop.toast(error.message, "error");
+        }
+      }
+    }
   }
 }
 </script>

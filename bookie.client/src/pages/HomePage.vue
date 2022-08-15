@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-between mx-5">
+    <div class="row justify-content-between mx-5 my-3">
       <div class="col-3">
         <h1 class="logo">
           <a
@@ -12,7 +12,7 @@
           </a>
         </h1>
       </div>
-      <div class="col-6 text-center mt-4">
+      <!-- <div class="col-6 text-center mt-4">
         <form @submit.prevent="" class="input-group">
           <select
             name="addBook"
@@ -27,7 +27,7 @@
           </select>
           <button class="btn btn-info w-25">Add Book To List</button>
         </form>
-      </div>
+      </div> -->
       <div class="col-3 text-end">
         <h1 class="logo">
           <a
