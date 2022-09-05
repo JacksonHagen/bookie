@@ -28,6 +28,12 @@ const routes = [
 		name: 'Schedule',
 		component: loadPage('SchedulePage'),
 		beforeEnter: authGuard
+	},
+	{
+		path:'/write-review',
+		name:'ReviewWriting',
+		component: loadPage('ReviewWritingPage'),
+		beforeEnter: authGuard
 	}
 
 ]

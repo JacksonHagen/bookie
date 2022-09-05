@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row justify-content-between mx-5">
+    <div class="row justify-content-between mx-5 my-3">
       <div class="col-3">
         <h1 class="logo">
           <a
