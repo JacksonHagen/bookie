@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12" v-if="myBooks.length">
         <ScheduleSpreadsheet :books="myBooks" />
       </div>
     </div>
@@ -18,7 +18,7 @@ export default {
   setup() {
     onMounted(async () => {
       try {
-        booksService.getAllBooks();
+        await booksService.getAllBooks();
       }
       catch (error) {
         console.error("[COULDNT_LOAD_BOOKS]", error.message);

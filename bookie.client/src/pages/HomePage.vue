@@ -12,12 +12,13 @@
           </a>
         </h1>
       </div>
-      <div class="col-6 text-center mt-4">
+      <!-- <div class="col-6 text-center mt-4">
         <form @submit.prevent="" class="input-group">
           <select
             name="addBook"
             id="addBook"
             class="form-control w-75"
+            v-model="addedBook.value"
             required
           >
             <option disabled selected>Select a book</option>
@@ -25,9 +26,11 @@
               {{ b.title }}
             </option>
           </select>
-          <button class="btn btn-info w-25">Add Book To List</button>
+          <button class="btn btn-info w-25" type="submit">
+            Add Book To List
+          </button>
         </form>
-      </div>
+      </div> -->
       <div class="col-3 text-end">
         <h1 class="logo">
           <a
@@ -48,14 +51,14 @@
 </template>
 
 <script>
-import { computed } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
 import { AppState } from '../AppState.js'
 import { onMounted } from '@vue/runtime-core'
 import Pop from '../utils/Pop.js'
 import { booksService } from '../services/BooksService.js'
 export default {
   setup() {
-
+    const addedBook = ref({})
     onMounted(async () => {
       try {
         await booksService.getAllBooks()
@@ -66,6 +69,8 @@ export default {
       }
     })
     return {
+
+      addedBook,
       books: computed(() => AppState.myBooks),
       readingBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading')),
       nextUpBooks: computed(() => AppState.myBooks.filter(b => b.status === 'reading soon')),

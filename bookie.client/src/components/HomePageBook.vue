@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-5">
     <div class="col-10">
       <div class="card w-100 bg-light p-3">
         <div class="row">
@@ -32,7 +32,7 @@
             <div class="d-flex justify-content-between pe-3">
               <h3 class="d-flex">
                 Format:
-                <p class="ms-2 fw-light ">{{ book.format }}</p>
+                <p class="ms-2 fw-light">{{ book.format }}</p>
               </h3>
               <h4>
                 Status -
