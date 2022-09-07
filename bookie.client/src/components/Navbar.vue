@@ -36,6 +36,11 @@
             Schedule
           </router-link>
         </li>
+        <li class="fs-1 ms-5">
+          <router-link :to="{ name: 'ReviewWriting' }" class="text-light">
+            Review Writing
+          </router-link>
+        </li>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
@@ -58,7 +63,6 @@
         <div class="modal-body">
           <CreateBookForm />
         </div>
-
       </div>
     </div>
   </div>

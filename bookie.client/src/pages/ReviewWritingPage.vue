@@ -1,9 +1,14 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        <ReviewEditor />
-      </div>
+
+		</div>
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6">
+				
+			</div>
+      <div class="col-3"></div>
     </div>
   </div>
 </template>
@@ -15,7 +20,7 @@ export default {
     return {}
   }
 }
-</script>``
+</script>
 
 
 <style lang="scss" scoped>
