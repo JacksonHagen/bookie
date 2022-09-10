@@ -1,14 +1,12 @@
 <template>
-  <div class="container">
-    <div class="row">
-
-		</div>
-    <div class="row">
-      <div class="col-3"></div>
-      <div class="col-6">
-				
-			</div>
-      <div class="col-3"></div>
+  <div class="container-fluid">
+    <div class="row"></div>
+    <div class="row mt-5 text-center">
+      <div class="col-2">
+        <HashtagBlockForm />
+      </div>
+      <div class="col-8"></div>
+      <div class="col-2"></div>
     </div>
   </div>
 </template>
