@@ -9,8 +9,8 @@ class HashtagBlocksService
 		AppState.hashtagBlocks = res.data
 		logger.log(res.data)
 	}
-	async createBlock(hashtags) {
-		const res = await api.post('api/hashtags', hashtags)
+	async createBlock(blockData) {
+		const res = await api.post('api/hashtags', blockData)
 		logger.log(res.data)
 		AppState.hashtagBlocks = [res.data,...AppState.hashtagBlocks]
 	}

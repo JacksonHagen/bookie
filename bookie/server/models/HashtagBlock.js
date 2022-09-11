@@ -4,7 +4,8 @@ const Schema = mongoose.Schema
 export const HashtagBlockSchema = new Schema({
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
   hashtagList: { type: Array, required: true },
-  bgColor: { type: String, required: true }
+  bgColor: { type: String, required: true },
+  title: { type: String, required: true }
 },
 {
   timestamps: true,
