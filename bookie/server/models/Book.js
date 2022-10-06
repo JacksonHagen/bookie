@@ -12,7 +12,9 @@ export const BookSchema = new Schema({
   platform: { type: String, required: true },
   status: { type: String, enum: ['reading soon', 'reading', 'read', 'TBD'], default: 'TBD' },
   rating: { type: Number, default: 0 },
-  isArchived: { type: Boolean, default: false }
+  isArchived: { type: Boolean, default: false },
+  review: { type: String, default: '' }
+
 },
 {
   timestamps: true,

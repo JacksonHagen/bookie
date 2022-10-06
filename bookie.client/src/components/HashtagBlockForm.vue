@@ -9,6 +9,14 @@
       title="select the block's color"
       v-model="blockData.bgColor"
     />
+    <input
+      type="text"
+      name="title"
+      id="title"
+      placeholder="Block Title..."
+      class="form-control bg-primary p-1 lighten-10 text-dark mb-1"
+      v-model="blockData.title"
+    />
     <textarea
       name="hashtags"
       id="hashtags"

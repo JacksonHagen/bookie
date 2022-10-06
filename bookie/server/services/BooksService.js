@@ -32,6 +32,7 @@ class BooksService {
     targetBook.status = body.status || targetBook.status
     targetBook.rating = body.rating || targetBook.rating
     targetBook.imgUrl = body.imgUrl || targetBook.imgUrl
+    targetBook.review = body.review || targetBook.review
     await targetBook.save()
     return targetBook
   }
