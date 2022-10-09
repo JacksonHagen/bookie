@@ -43,11 +43,9 @@ export default {
     return {
       blockData,
       async createBlock() {
-        debugger
         let listArr = blockData.value.hashtagList.split("#")
         listArr.shift()
-        blockData.value.hashtagList = listArr
-        logger.log(blockData.value)
+        blockData.value.hashtagList = listArr.map(s => s.trim())
         try {
           await hashtagBlocksService.createBlock(blockData.value)
         }

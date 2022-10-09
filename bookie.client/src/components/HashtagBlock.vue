@@ -30,7 +30,7 @@ export default {
   setup(props) {
     return {
       copyBlock() {
-        const blockListStr = "#" + props.hashtagBlock.hashtagList.join(" #")
+        const blockListStr = "#" + props.hashtagBlock.hashtagList.join(" #").trim()
         navigator.clipboard.writeText(blockListStr)
         Pop.toast("Copied", 'success')
       }
