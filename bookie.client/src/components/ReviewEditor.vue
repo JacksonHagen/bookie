@@ -51,10 +51,13 @@ export default {
     const selectedBook = ref({});
     const router = useRouter();
     watchEffect(() => {
-      if (selectedBook.value.id) {
-        router.push({ name: "ReviewWriting", params: { id: selectedBook.value.id } })
-      } else if (route.params.id) {
-        selectedBook.value = props.books.find(b => b.id == route.params.id) || {}
+      if (route.name == "ReviewWriting") {
+
+        if (selectedBook.value.id) {
+          router.push({ name: "ReviewWriting", params: { id: selectedBook.value.id } })
+        } else if (route.params.id) {
+          selectedBook.value = props.books.find(b => b.id == route.params.id) || {}
+        }
       }
     })
     return {
