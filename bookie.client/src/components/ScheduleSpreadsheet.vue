@@ -2,6 +2,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col"></th>
         <th scope="col">
           <p class="selectable m-0" @click="sortList('title')">Title</p>
         </th>

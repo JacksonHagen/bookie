@@ -30,7 +30,7 @@ const routes = [
 		beforeEnter: authGuard
 	},
 	{
-		path:'/write-review',
+		path:'/write-review/:id?',
 		name:'ReviewWriting',
 		component: loadPage('ReviewWritingPage'),
 		beforeEnter: authGuard

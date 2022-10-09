@@ -1,5 +1,13 @@
 <template>
   <tr>
+    <td class="pt-3">
+      <i
+        class="mdi mdi-message-draw selectable"
+        :class="book.review ? 'text-light' : ''"
+        title="Go to review editor"
+        @click="goToReview()"
+      ></i>
+    </td>
     <td>
       <input
         type="text"
@@ -89,6 +97,7 @@ import { computed, ref } from '@vue/reactivity';
 import { booksService } from '../services/BooksService.js';
 import Pop from '../utils/Pop.js';
 import StarRating from 'vue-star-rating'
+import { useRouter } from 'vue-router';
 export default {
   props: {
     book: {
@@ -101,6 +110,7 @@ export default {
   },
   setup(props) {
     const bookEdit = ref(props.book)
+    const router = useRouter()
     return {
       bookEdit,
       async edit() {
@@ -111,6 +121,9 @@ export default {
           console.error("[COULDNT_EDIT_BOOK]", error.message);
           Pop.toast(error.message, "error");
         }
+      },
+      goToReview() {
+        router.push({ name: "ReviewWriting", params: { id: props.book.id } })
       }
     }
   }

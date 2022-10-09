@@ -6,28 +6,7 @@
         <HashtagBlockForm />
       </div>
       <div class="col-6">
-        <div class="row">
-          <div class="col-12">
-            <textarea
-              name="review"
-              id="review"
-              class="mt-5 w-100 form-control bg-primary lighten-10"
-              rows="17"
-              v-model="selectedBook.review"
-            >
-            </textarea>
-          </div>
-        </div>
-        <div class="row" v-if="books">
-          <div class="col-6">
-            <select name="book" id="book" v-model="selectedBook">
-              <option v-for="b in books" :value="b" :key="b.id">
-                {{ b.title }}
-              </option>
-            </select>
-          </div>
-          <div class="col-6"></div>
-        </div>
+        <ReviewEditor :books="books" v-if="books" />
       </div>
       <div class="col-2" v-if="hashtagBlocks">
         <HashtagBlock
@@ -59,11 +38,9 @@ export default {
         Pop.toast(error.message, "error");
       }
     })
-    const selectedBook = ref({});
     return {
       hashtagBlocks: computed(() => AppState.hashtagBlocks),
       books: computed(() => AppState.myBooks),
-      selectedBook
     }
   }
 }
