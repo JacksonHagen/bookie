@@ -26,10 +26,10 @@
           <p class="selectable m-0" @click="sortList('platform')">Platform</p>
         </th>
         <th scope="col">
-          <p class="selectable m-0">Posted?</p>
+          <p class="m-0">Posted?</p>
         </th>
         <th scope="col">
-          <p class="selectable m-0">Status</p>
+          <p class="m-0">Status</p>
         </th>
         <th scope="col">
           <p class="selectable m-0" @click="sortList('rating')">Rating</p>

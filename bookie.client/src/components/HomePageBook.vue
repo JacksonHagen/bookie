@@ -22,7 +22,8 @@
             <img
               :src="book.imgUrl"
               :alt="book.title + ' cover image'"
-              class="img-fluid elevation-5 rounded"
+              class="selectable img-fluid elevation-5 rounded"
+              @click="goToReview()"
             />
           </div>
           <div class="col-md-9 d-flex flex-column justify-content-between">
@@ -65,6 +66,7 @@
 import { ref } from '@vue/reactivity';
 import { booksService } from '../services/BooksService.js';
 import StarRating from 'vue-star-rating'
+import { router } from '../router.js';
 
 export default {
   props: {
@@ -88,6 +90,9 @@ export default {
           console.error("[COULDNT_EDIT_BOOK]", error.message);
           Pop.toast(error.message, "error");
         }
+      },
+      goToReview() {
+        router.push({ name: "ReviewWriting", params: { id: props.book.id } })
       }
     }
   }
