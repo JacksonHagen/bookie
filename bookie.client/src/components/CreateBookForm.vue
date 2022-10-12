@@ -51,7 +51,12 @@
       </div>
       <div class="col-6">
         <label for="status">Status:</label>
-        <select name="status" id="status" class="form-control">
+        <select
+          name="status"
+          id="status"
+          class="form-control"
+          v-model="newBook.status"
+        >
           <option value="TBD" selected>TBD</option>
           <option value="reading soon">Reading soon</option>
           <option value="reading">Reading</option>

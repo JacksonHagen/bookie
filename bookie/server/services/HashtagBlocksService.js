@@ -31,7 +31,7 @@ class HashtagBlocksService {
 
   async delete(id, userId) {
     await this.getById(id, userId)
-    dbContext.HashtagBlocks.findByIdAndDelete(id)
+    await dbContext.HashtagBlocks.findByIdAndDelete(id)
   }
 }
 

@@ -8,7 +8,7 @@
     <thead>
       <tr>
         <th scope="col"></th>
-        <th scope="col">
+        <th scope="col" width="22%">
           <p class="selectable m-0" @click="sortList('title')">Title</p>
         </th>
         <th scope="col">
@@ -73,7 +73,7 @@ export default {
             sortedList = props.books.sort(function (a, b) {
               let releaseDateA = a.releaseDate;
               let releaseDateB = b.releaseDate;
-              return (releaseDateA < releaseDateB) ? -1 : (releaseDateA > releaseDateB) ? 1 : 0
+              return (releaseDateA > releaseDateB) ? -1 : (releaseDateA < releaseDateB) ? 1 : 0
             })
             break;
           case 'author':

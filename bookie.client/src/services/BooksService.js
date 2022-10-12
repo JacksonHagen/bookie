@@ -16,7 +16,7 @@ class BooksService
 
 	async addBook(book) {
 		const res = await api.post('api/books', book)
-		logger.log(res)
+		AppState.myBooks = [res.data, ...AppState.myBooks] 
 	}
 }
 

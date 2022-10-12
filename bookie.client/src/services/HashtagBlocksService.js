@@ -7,12 +7,15 @@ class HashtagBlocksService
 	async getAllBlocks() {
 		const res = await api.get('api/hashtags')
 		AppState.hashtagBlocks = res.data
-		logger.log(res.data)
 	}
 	async createBlock(blockData) {
 		const res = await api.post('api/hashtags', blockData)
-		logger.log(res.data)
 		AppState.hashtagBlocks = [res.data,...AppState.hashtagBlocks]
+	}
+	async deleteBlock(id) {
+		const res = await api.delete('api/hashtags/' + id)
+		logger.log(res.data)
+		AppState.hashtagBlocks = AppState.hashtagBlocks.filter(b => b.id != id)
 	}
 }
 
