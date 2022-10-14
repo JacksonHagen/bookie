@@ -39,7 +39,7 @@ import { hashtagBlocksService } from "../services/HashtagBlocksService.js";
 import Pop from '../utils/Pop.js'
 export default {
   setup() {
-    const blockData = ref({ bgColor: "#9296f6" })
+    const blockData = ref({ bgColor: "#E26868" })
     return {
       blockData,
       async createBlock() {
